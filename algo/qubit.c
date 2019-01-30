@@ -13,13 +13,13 @@
 
 void qubithash(void *output, const void *input)
 {
-	sph_bmw256_context ctx_bmw;
+	sph_bmw512_context ctx_bmw;
 
 	uint8_t hash[64];
 
-	sph_bmw256_init(&ctx_bmw);
-	sph_bmw256 (&ctx_bmw, input, 80);
-	sph_bmw256_close(&ctx_bmw, (void*) hash);
+	sph_bmw512_init(&ctx_bmw);
+	sph_bmw512 (&ctx_bmw, input, 80);
+	sph_bmw512_close(&ctx_bmw, (void*) hash);
 
 	memcpy(output, hash, 32);
 }
